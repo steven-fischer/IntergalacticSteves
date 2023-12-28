@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>STEVE'S INTERGALACTIC CAFE | LOCATIONS</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="Style&Fonts/steveStyles.css">
+<!--
+
+Name/Cid:
+
+Byron Yocum/E27
+
+
+Objectives:
+
+Storing Data/Using JSON
+Working with arrays
+for loops
+if statements
+css
+-->
+
+<style>
+
+body { background-image: url("Style&Fonts/blueSpace.png");}
+
+#alien1 { font-family: alien1Wizard; color: #ffffff;}
+#alien2 { font-family: alien2Lovecraft; color: #ffffff; }
+#alien3 { font-family: alien3Krypton; color: #ffffff; }
+#english { font-family: RedSeven; color: #ffffff; }
+
+#locationList { min-height: 350px; }
+
+#conHeader {
+	border-radius: 25px;
+	margin: 3% auto;
+    font-family: RedSeven;
+    font-size: 1em;
+    text-align: center;
+    color: #5ABFFF;
+}
+    
+#conInfo {
+    color: lightgrey;
+    font-size: 1em;
+    font-family: RedSeven; 
+}
+
+h2 {
+    color: lightgrey;
+    font-size: 1em;
+    font-family: RedSeven; 
+	text-decoration: underline;
+	text-align: center;
+}
+
+h3 {
+    color: lightgrey;
+    font-size: 1em;
+    font-family: RedSeven;
+	text-align: center;
+}
+
+.list {
+    color: white;
+    font-size: 1.75em; 
+	text-align: center;
+	margin: 15px;
+	margin-bottom: 10px;
+}
+
+#galaxy { color: white; margin-top: 10px; }
+
+#english { font-family: spaceAge; }
+
+#alien1 { font-family: alien1Wizard; }
+
+#alien2 { font-family: alien2Lovecraft; }
+
+#alien3 { font-family: alien3Krypton; }
+
+input[type=button] { color: white; text-align: center; width: 100px; display: inline-block; max-width: 300px; background-color: #11469b; }
+
+ul { padding: 5px; }
+
+</style>
+
+<script>
+var data = {
+	"one"  : "Milky Way",
+	"two"  : "Andomeda",
+	"three"  : "Cigar",
+	"four"  : "Tadpole",
+	"five"  : "Whirlpool",
+	
+	"milkyWay" : [
+		{"location" : "Earths Moon"},
+		{"location" : "Kepler-452B"},
+		{"location" : "Halley's Comet"}
+	],
+	
+	"andromeda" : [
+		{"location" : "Blue snowball Nebula"},
+		{"location" : "Cluster Mayall II"},
+		{"location" : "Gravitiation Microlensing PA-99-N2"}
+	],
+	
+	"cigar" : [
+		{"location" : "Supernova SN 2014J"},
+		{"location" : "Planet Santraginus V"},
+		{"location" : "Planet Arkannis Major"}
+	],
+	
+	"tadpole" : [
+		{"location" : "Star Theta Draconis"},
+		{"location" : "Binary Star Struve 2398 B"},
+		{"location" : "Cato Neimoidia"}
+	],
+	
+	"whirlpool" : [
+		{"location" : "Star Beta Canum Venaticorum"},
+		{"location" : "Binary star RS Canum Venaticorum"},
+		{"location" : "Planet Gallifrey" }
+	]
+}
+
+
+function displayLocations() {
+	
+	document.getElementById("locationList").innerHTML = "";
+	
+	var message = "";
+	
+	if (document.getElementById("1").selected == true) {
+		message += "<h2 id='galaxy'>The " + data.one + " Galaxy: </h2>";
+		message += "<ul style='list-style: none;'>";
+		for (var i in data.milkyWay) {
+			message += "<li id='english' class='list' >" + data.milkyWay[i].location + "</li>";
+			message += "<li id='alien1' class='list' >" + data.milkyWay[i].location + "</li>";
+			message += "<li id='alien2' class='list' >" + data.milkyWay[i].location + "</li>";
+			message += "<li id='alien3' class='list' >" + data.milkyWay[i].location + "</li>";
+			message += "<br/><hr>";
+		}
+		message += "</ul>";
+	}
+	if (document.getElementById("2").selected == true) {
+		message += "<h2 id='galaxy'>The " + data.two + " Galaxy: </h2>";
+		message += "<ul style='list-style: none;'>";
+		for (var i in data.andromeda) {
+			message += "<li id='english' class='list' >" + data.andromeda[i].location + "</li>";
+			message += "<li id='alien1' class='list' >" + data.andromeda[i].location + "</li>";
+			message += "<li id='alien2' class='list' >" + data.andromeda[i].location + "</li>";
+			message += "<li id='alien3' class='list' >" + data.andromeda[i].location + "</li>";
+			message += "<br/><hr>";
+		}
+		message += "</ul>";
+	}
+	if (document.getElementById("3").selected == true) {
+		message += "<h2 id='galaxy'>The " + data.three + " Galaxy: </h2>";
+		message += "<ul style='list-style: none;'>";
+		for (var i in data.cigar) {
+			message += "<li id='english' class='list' >" + data.cigar[i].location + "</li>";
+			message += "<li id='alien1' class='list' >" + data.cigar[i].location + "</li>";
+			message += "<li id='alien2' class='list' >" + data.cigar[i].location + "</li>";
+			message += "<li id='alien3' class='list' >" + data.cigar[i].location + "</li>";
+			message += "<br/><hr>";
+		}
+		message += "</ul>";
+	}
+	if (document.getElementById("4").selected == true) {
+		message += "<h2 id='galaxy'>The " + data.four + " Galaxy: </h2>";
+		message += "<ul style='list-style: none;'>";
+		for (var i in data.tadpole) {
+			message += "<li id='english' class='list' >" + data.tadpole[i].location + "</li>";
+			message += "<li id='alien1' class='list' >" + data.tadpole[i].location + "</li>";
+			message += "<li id='alien2' class='list' >" + data.tadpole[i].location + "</li>";
+			message += "<li id='alien3' class='list' >" + data.tadpole[i].location + "</li>";
+			message += "<br/><hr>";
+		}
+		message += "</ul>";
+	}
+	if (document.getElementById("5").selected == true) {
+		message += "<h2 id='galaxy'>The " + data.five + " Galaxy: </h2>";
+		message += "<ul style='list-style: none;'>";
+		for (var i in data.whirlpool) {
+			message += "<li id='english' class='list' >" + data.whirlpool[i].location + "</li>";
+			message += "<li id='alien1' class='list' >" + data.whirlpool[i].location + "</li>";
+			message += "<li id='alien2' class='list' >" + data.whirlpool[i].location + "</li>";
+			message += "<li id='alien3' class='list' >" + data.whirlpool[i].location + "</li>";
+			message += "<br/><hr>";
+		}
+		message += "</ul>";
+	}
+	document.getElementById("locationList").innerHTML = message;
+
+}
+
+</script>
+
+</head>
+<body>
+	<img id="ufo1" class="ufo" src="Style&Fonts/ufo1.png" alt="UFO">
+	<img id="ufo2" class="ufo" src="Style&Fonts/ufo2.png" alt="UFO">
+	<section class="header">
+		<h1 id="title">
+		STEVE'S INTERGALACTIC CAFE
+		</h1>
+		<nav>
+			<ul id="list">
+				<li class="item"><a href="homePage.htm" class="link">Home</a></li>
+				<li class="item"><a href="menu.htm" class="link">Menu</a></li>
+				<li class="item"><a href="locationPage.htm" class="link">Locations</a></li>
+				<li class="item"><a href="contactPage.htm" class="link">Contact</a></li>
+			</ul>
+		</nav>
+	</section>
+	
+	<section id="bodyHeader" class="header">
+        <h2 id="conHeader">--- Locations ---</h2>
+		<hr>
+		
+		<section id="conHeader">
+			<form id="dropDown">
+				<h2>Select a galaxy near you: </h3>
+				<select name="galaxy"> 
+					<option id="0">-Select a Galaxy-</option>
+					<option id="1">Milky Way Galaxy</option>
+					<option id="2">Andromeda Galaxy</option>
+					<option id="3">Cigar Galaxy</option>
+					<option id="4">Tadpole Galaxy</option>
+					<option id="5">Whirlpool Galaxy</option>
+				</select>
+				<input type="button" id="galaxy" onclick="displayLocations()" value=" Find a Steve's Near You! " />
+			</form>
+        
+		
+		
+		</section>
+		
+		<section id="conBody">
+			<h3>Now orbiting around these locations: </h3>
+			<p id="locationList"></p>
+		</section>
+    </section>
+	
+	
+</section>
+</body>
+</html>

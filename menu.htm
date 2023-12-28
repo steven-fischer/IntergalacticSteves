@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Menu | Steve's Intergalactic Cafe</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="Style&Fonts/steveStyles.css">
+
+    
+
+<style>
+
+
+	body {
+		
+		background-image: url("Style&Fonts/blueSpace.png");
+		text-align: center;
+	}
+	
+	form {
+		position: relative;
+		
+	}
+    #conHeader {
+	border-radius: 25px;
+	margin: 3% auto;
+    font-family: RedSeven;
+    font-size: 1em;
+    text-align: center;
+    color: #5ABFFF;
+}
+	
+	#menuItems {
+		width: 85%;
+		margin-top: 15px;
+	}
+	
+	.alert {
+		font-size:1.3em; 
+        text-align: center;
+		color: gold;
+		background: rgba(200,200,200,.5);
+		border-radius: 25px;
+		width: 700px;
+		margin-left: 15%;
+        margin-right: 15%;
+	}
+	
+	.menuItem {
+		float: left; 
+		margin: 25px; 
+		width: 150px;
+		height: 250px;
+		overflow-y: auto; /* Not necessary currently, but added in case future additions need it */
+		padding: 10px;
+		border: 1px solid gold;
+		background-color: rgba(200, 200, 200, .75);
+		color: #003B6F;
+		border-radius: 25px;
+	}
+	
+	#beam {
+		width: 10%;
+		height: 500px;
+		background-image: linear-gradient(to right, rgba(255,255,0,0), rgba(200,200,0,1), rgba(255,255,0,0));
+		position: absolute;
+		right: 30px;
+		margin-top: 5px;
+		margin-bottom: 5px;
+		vertical-align: bottom;
+		text-align: center;
+	}
+	
+	#btn {
+		position: absolute;
+		left: 10px;
+		bottom: 5px;
+        color: white; text-align: center; display: inline-block; background-color: #11469b;
+		
+	}
+
+	#upsy {
+		width: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+
+</style>
+
+<script>
+	
+	function loadMenu(){
+		var json = null;
+		$.ajax({
+			'async': false,
+			'global': false,
+			'url': "menu.json",
+			'datatype': "json",
+			'success': function(data){
+				json = data;
+			}
+		});
+		return json;
+	}
+	
+	$(document).ready(function(){
+	
+		/*$.get("header.htm", function(data) {
+			$("#hd").html(data);
+		});*/
+		
+		var menu = loadMenu();
+	
+		var output = "<div id='menuItems'>";
+		for(var i = 0; i < menu.items.length; i++){
+			output += "<div class='menuItem'><h2>" + menu.items[i].details.name + "</h2>";
+			output += "<p>" + menu.items[i].details.desc + "</p>";
+			output += "<input type='hidden' name='order[]' value='" + menu.items[i].id + "'>$" + menu.items[i].details.price.toFixed(2) + "<br />";
+			output += "<input type='number' name='qty[]' min='0' max='20' value=0 />" + "</div>";
+		}
+		output += "<div id='beam'><img src='Style&Fonts/ufoBelow.png' id='upsy' /><input type='submit' id='btn' value='Place Order' /></div></div>"
+		document.getElementById("menu[]").innerHTML = output;
+		
+		$("#btn").click(function(event){
+			$submit = $(this);
+			event.preventDefault();
+			$("#beam").animate(
+				{height: "0px"},
+				{
+					duration: "fast",
+					complete: function(){
+						$submit.parents('form').submit();
+					}
+				}
+			);
+		});
+	});
+</script>
+
+
+
+</head>
+<body>
+	<div id="hd"></div>
+	<img id="ufo1" class="ufo" src="Style&Fonts/ufo1.png" alt="UFO">
+	<img id="ufo2" class="ufo" src="Style&Fonts/ufo2.png" alt="UFO">
+	<section class="header">
+		<h1 id="title">STEVE'S INTERGALACTIC CAFE </h1>
+		<nav>
+			<ul id="list">
+				<li class="item"><a href="index.htm" class="link">Home</a></li>
+				<li class="item"><a href="menu.htm" class="link">Menu</a></li>
+				<li class="item"><a href="location.htm" class="link">Locations</a></li>
+				<li class="item"><a href="contact.htm" class="link">Contact</a></li>
+			</ul>
+		</nav>
+	</section>
+	<br />
+    <section class="header">
+        <h2 id="conHeader">--- Contact Us ---</h2>
+        <hr>
+	<form id="menu[]" method="post" action="menu.php">
+		<div id='menuItems'>
+			<p class="alert">
+				It appears that you don't have JavaScript enabled. 
+				Please enable JavaScript or content yourself with some of our more popular items.
+			</p>
+            
+            
+			<div class='menuItem'>
+				<h2> Slurm </h2>
+				<p>It's highly addictive!</p>
+				<input type='hidden' name='order[]' value='m1'>$0.99<br />
+				<input type='number' name='qty[]' min='0' max='20' value=0 />
+			</div>
+			<div class='menuItem'>
+				<h2> Soylent Cola </h2>
+				<p>Taste varies from person to person</p>
+				<input type='hidden' name='order[]' value='m2'>$2.22<br />
+				<input type='number' name='qty[]' min='0' max='20' value=0 />
+			</div>
+			<div class='menuItem'>
+				<h2> Popplers, one dozen </h2>
+				<p>Caution: Their parents may eat you.</p>
+				<input type='hidden' name='order[]' value='m9'>$2.00<br />
+				<input type='number' name='qty[]' min='0' max='20' value=0 />
+			</div>
+			<div class='menuItem'>
+				<h2> Bantha Steak </h2>
+				<p>Fresh from offworld!</p>
+				<input type='hidden' name='order[]' value='m12'>$22.99<br />
+				<input type='number' name='qty[]' min='0' max='20' value=0 />
+			</div>
+			<div id='beam'>
+				<img src='Style&Fonts/ufoBelow.png' id='upsy' />
+				<br />
+				<input type='submit' id='btn' value='Place Order' />
+			</div>
+		</div>
+	</form>
+    </section>
+
+</body>
+</html>

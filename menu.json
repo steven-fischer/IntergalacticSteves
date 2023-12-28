@@ -1,0 +1,76 @@
+{
+	"items" : [
+		{"id" : "m1", "details": {
+			"name" : "Slurm", 
+			"price": 0.99,
+			"desc" : "It's highly addictive!"
+			}
+		},
+		{"id" : "m2", "details": {
+			"name" : "Soylent Cola", 
+			"price": 2.22,
+			"desc" : "Taste varies from person to person"
+			}
+		},
+		{"id" : "m3", "details": {
+			"name" : "Akrennian Beetle Sashimi", 
+			"price": 6.33,
+			"desc" : "A writhing trough of beetle larvae!"
+			}
+		},
+		{"id" : "m4", "details": {
+			"name" : "Klingon Blood Wine", 
+			"price": 14.44,
+			"desc" : "Best served warm"
+			}
+		},
+		{"id" : "m5", "details": {
+			"name" : "Pan-Galactic Gargle Blaster", 
+			"price": 99.99,
+			"desc" : "It's like having your brain bashed in by a slice of lemon wrapped round a large gold brick."
+			}
+		},
+		{"id" : "m6", "details": {
+			"name" : "Kep-mok Blood Ticks", 
+			"price": 8.88,
+			"desc" : "An important part of the Mak'Tar, personally recommended by Dr. Lazarus."
+			}
+		},
+		{"id" : "m7", "details": {
+			"name" : "Iguana-Chicken", 
+			"price": 12.73,
+			"desc" : "Tastes more like chicken than iguana."
+			}
+		},
+		{"id" : "m8", "details": {
+			"name" : "Roasted Porg", 
+			"price": 5.22,
+			"desc" : "Delicious if you can ignore the stares of their kin."
+			}
+		},
+		{"id" : "m9", "details": {
+			"name" : "Popplers, one dozen", 
+			"price": 2.00,
+			"desc" : "Caution: Their parents may eat you."
+			}
+		},
+		{"id" : "m10", "details": {
+			"name" : "Romulan Ale", 
+			"price": 12.50,
+			"desc" : "Useful for \"medicinal purposes.\""
+			}
+		},
+		{"id" : "m11", "details": {
+			"name" : "Mudder's Milk", 
+			"price": 7.99,
+			"desc" : "All the protein, vitamins, and carbs of your grandma's best turkey dinner, plus 15 percent alcohol."
+			}
+		},
+		{"id" : "m12", "details": {
+			"name" : "Bantha Steak", 
+			"price": 22.99,
+			"desc" : "Fresh from offworld!"
+			}
+		}
+	]
+}
